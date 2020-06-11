@@ -1,0 +1,11 @@
+.mk {
+    text-align: center;
+    width: max-content;
+}
+
+.maskot {
+    background: url('img/rahmanto.jpg');
+    
+    background-position: center;
+    background-size: cover;
+}
