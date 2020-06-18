@@ -6,19 +6,24 @@ if (!isset($_SESSION["login"])) {
 }
 
 require 'fungsi.php';
+// $nipschool = $_SESSION["nip"];
+
+// $qschool = "SELECT * FROM school WHERE nip = '$nipschool'";
+// mysqli_query($conn, $query);
+
 if(isset($_POST["submit"])) {
   if(tambah($_POST) > 0 ){
       echo "
         <script>
           alert('data berhasil ditambahkan!');
-          document.location.href = 'index.php'
+          document.location.href = 'index.php';
         </script>
       ";
     } else {
       echo "
         <script>
           alert('data gagal ditambahkan!');
-          document.location.href = 'index.php'
+          document.location.href = 'index.php';
         </script>
       ";
     }
@@ -185,7 +190,7 @@ if(isset($_POST["submit"])) {
                         </div>
                         <div class="col-lg-4">
                           <label for="tglsd">Tanggal</label>
-                          <input type="date" name="tglsd" class="form-control" id="tglsd" required>
+                          <input type="date" name="tglsd" class="form-control" id="tglsd">
                         </div>
                       </div>
                     </div>
@@ -255,7 +260,7 @@ if(isset($_POST["submit"])) {
                 </div>
               </div>
               <div class="row mr-auto" style="float: right;">
-                <button type="submit" class="btn btn-info btn-lg" >SIMPAN</button>
+                <button type="submit" class="btn btn-info btn-lg" name="submit">SIMPAN</button>
               </div>
             </form>
           <!-- </div> -->
@@ -300,7 +305,7 @@ if(isset($_POST["submit"])) {
         <div class="modal-body">Tindis "Logout" kalo sudah.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.php">Logout</a>
+          <a class="btn btn-primary" href="logout.php">Logout</a>
         </div>
       </div>
     </div>
