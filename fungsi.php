@@ -29,7 +29,7 @@ function tambah($data) {
     // $query = "INSERT INTO school (id, nosd) VALUES ('', '$nosd') WHERE nip = '$pengguna'";
     $query = "UPDATE school SET nosd='$nosd' WHERE nip = '$pengguna'";
     mysqli_query($conn, $query);
-    $_SESSION["nosd"] = $school["nosd"];
+    // $_SESSION["nosd"] = $school["nosd"];     kayaknya bole mo buang
   // if( mysqli_affected_rows($conn) > 0 ){
   //   echo "<script>
   //         alert('Bapak/Ibu BERHASIL Absen !!! ... TERIMA KASIH');

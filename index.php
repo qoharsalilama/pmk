@@ -4,9 +4,25 @@ if (!isset($_SESSION["login"])) {
 	header("Location: login.php");
   exit;
 }
-
-
 require 'fungsi.php';
+//tes dari sebelah (temporary)
+$result2 = mysqli_query($conn, "SELECT * FROM main WHERE nip = '".$_SESSION['nip']."'" );
+$result3 = mysqli_query($conn, "SELECT * FROM school WHERE nip = '".$_SESSION['nip']."'");
+  $result4 = mysqli_query($conn, "SELECT * FROM nosk WHERE nip = '".$_SESSION['nip']."'");
+  $main = mysqli_fetch_assoc($result2);
+  $school = mysqli_fetch_assoc($result3);
+  $nosk = mysqli_fetch_assoc($result4);
+  $_SESSION["nama"] = $main["nama"];
+  $_SESSION["nip"] = $main["nip"];
+  $_SESSION["ttl"] = $main["ttl"];
+  $_SESSION["nosd"] = $school["nosd"];
+  $_SESSION["nosmp"] = $school["nosmp"];
+  $_SESSION["nosma"] = $school["nosma"];
+  $_SESSION["nos1"] = $school["nos1"];
+  $_SESSION["nosk1"] = $nosk["nosk1"];
+  $_SESSION["tglsk1"] = $nosk["tglsk1"];
+  $_SESSION["nosk2"] = $nosk["nosk2"];
+  $_SESSION["tglsk2"] = $nosk["tglsk2"];
 ?>
 
 <!DOCTYPE html>

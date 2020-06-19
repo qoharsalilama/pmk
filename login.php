@@ -5,17 +5,19 @@ if (isset($_SESSION["login"])) {
   header("Location: index.php");
 	exit;
 }
-
 require 'fungsi.php';
+//cek submit
 if (isset($_POST["login"])) {
   $username = $_POST["username"];
   $pwd = $_POST["pwd"];
   $result = mysqli_query($conn, "SELECT * FROM user WHERE nip = '$username'");
   
+  //cek username
   if (mysqli_num_rows($result) === 1) {
     $row = mysqli_fetch_assoc($result);
     // cek password
     if ($pwd == $row["pwd"]) {
+      //set session
       $_SESSION["login"] = true;
       header("Location: index.php");
 
@@ -23,13 +25,14 @@ if (isset($_POST["login"])) {
       echo "<script>
         alert('Password Salah!');
       </script>";
-    }
+      }
+    
   } else {
     echo "<script>
-      alert('Anda bukan PNS 2018');
-    </script>";
+        alert('NIP tidak terdaftar');
+      </script>";  
     exit;
-  }
+    }
   $error = true;
 
   $result2 = mysqli_query($conn, "SELECT * FROM main WHERE nip = '$username'" );
@@ -46,7 +49,7 @@ if (isset($_POST["login"])) {
   $_SESSION["nosma"] = $school["nosma"];
   $_SESSION["nos1"] = $school["nos1"];
   $_SESSION["nosk1"] = $nosk["nosk1"];
-  $_SESSION["tglsk1"] = mktime($nosk["tglsk1"]);
+  $_SESSION["tglsk1"] = $nosk["tglsk1"];
   $_SESSION["nosk2"] = $nosk["nosk2"];
   $_SESSION["tglsk2"] = $nosk["tglsk2"];
 }
@@ -104,8 +107,8 @@ if (isset($_POST["login"])) {
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">selalu ingat saya..</label>
+                        <input type="checkbox" class="custom-control-input" id="remember" name="remember">
+                        <label class="custom-control-label" for="remember">Ingat saya..</label>
                       </div>
                     </div>
                     <button class="btn btn-primary btn-user btn-block" name="login" type="submit">
