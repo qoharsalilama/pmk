@@ -35,23 +35,7 @@ if (isset($_POST["login"])) {
     }
   $error = true;
 
-  $result2 = mysqli_query($conn, "SELECT * FROM main WHERE nip = '$username'" );
-  // $result3 = mysqli_query($conn, "SELECT * FROM school WHERE nip = '$username'");
-  // $result4 = mysqli_query($conn, "SELECT * FROM nosk WHERE nip = '$username'");
-  $main = mysqli_fetch_assoc($result2);
-  // $school = mysqli_fetch_assoc($result3);
-  // $nosk = mysqli_fetch_assoc($result4);
-  // $_SESSION["nama"] = $main["nama"];
-  $_SESSION["nip"] = $main["nip"];
-  // $_SESSION["ttl"] = $main["ttl"];
-  // $_SESSION["nosd"] = $school["nosd"];
-  // $_SESSION["nosmp"] = $school["nosmp"];
-  // $_SESSION["nosma"] = $school["nosma"];
-  // $_SESSION["nos1"] = $school["nos1"];
-  // $_SESSION["nosk1"] = $nosk["nosk1"];
-  // $_SESSION["tglsk1"] = $nosk["tglsk1"];
-  // $_SESSION["nosk2"] = $nosk["nosk2"];
-  // $_SESSION["tglsk2"] = $nosk["tglsk2"];
+  $_SESSION["nip"] = $username;
 }
 
 ?>
