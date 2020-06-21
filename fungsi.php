@@ -13,34 +13,44 @@ function query($query) {
 
 function tambah($data) {
     global $conn;
-    $pengguna = $_SESSION["nip"];
     // $query1 = mysqli_query($conn, "SELECT * FROM school WHERE nip = '$pengguna'");
     // $setbaris = mysqli_fetch_array($query1);
-    // $nosd = $_POST["nosd"];
     $nosd = htmlspecialchars($data["nosd"]);
-	// $tglsd = $data["tglsd"];
-	// $nosmp = htmlspecialchars($data["nosmp"]);
-    // $tglsmp = $data["tglsmp"];
-    // $nosma = htmlspecialchars($data["nosma"]);
-    // $tglsma = $data["tglsma"];
-    // $nos1 = htmlspecialchars($data["nos1"]);
-    // $tgls1 = $data["tgls1"];
+	$tglsd = $data["tglsd"];
+	$nosmp = htmlspecialchars($data["nosmp"]);
+    $tglsmp = $data["tglsmp"];
+    $nosma = htmlspecialchars($data["nosma"]);
+    $tglsma = $data["tglsma"];
+    $nos1 = htmlspecialchars($data["nos1"]);
+    $tgls1 = $data["tgls1"];
     
-    // $query = "INSERT INTO school (id, nosd) VALUES ('', '$nosd') WHERE nip = '$pengguna'";
-    $query = "UPDATE school SET nosd='$nosd' WHERE nip = '$pengguna'";
+    $query = "UPDATE school SET nosd='$nosd', tglsd='$tglsd', nosmp='$nosmp', tglsmp='$tglsmp', nosma='$nosma', tglsma='$tglsma',nos1='$nos1', tgls1='$tgls1',
+            WHERE nip = '".$_SESSION['nip']."'";
     mysqli_query($conn, $query);
-    // $_SESSION["nosd"] = $school["nosd"];     kayaknya bole mo buang
-  // if( mysqli_affected_rows($conn) > 0 ){
-  //   echo "<script>
-  //         alert('Bapak/Ibu BERHASIL Absen !!! ... TERIMA KASIH');
-  //         document.location.href='tabel.php'
-  //       </script>";
-  //     } else {
-  //       echo "<script>
-  //         alert('INPUT ABSEN GAGAL !!! ... SILAHKAN COBA LAGI');
-  //         document.location.href='index.php'
-  //       </script>";
-  //       echo mysqli_error($conn);
-  //     }
+    
     return mysqli_affected_rows($conn);
+}
+
+function tgl_indo($tanggal){
+	$bulan = array (
+		1 =>   'Januari',
+		'Februari',
+		'Maret',
+		'April',
+		'Mei',
+		'Juni',
+		'Juli',
+		'Agustus',
+		'September',
+		'Oktober',
+		'November',
+		'Desember'
+	);
+	$pecahkan = explode('-', $tanggal);
+	
+	// variabel pecahkan 0 = tanggal
+	// variabel pecahkan 1 = bulan
+	// variabel pecahkan 2 = tahun
+
+	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 }

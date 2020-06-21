@@ -6,10 +6,6 @@ if (!isset($_SESSION["login"])) {
 }
 
 require 'fungsi.php';
-// $nipschool = $_SESSION["nip"];
-
-// $qschool = "SELECT * FROM school WHERE nip = '$nipschool'";
-// mysqli_query($conn, $query);
 
 if(isset($_POST["submit"])) {
   if(tambah($_POST) > 0 ){

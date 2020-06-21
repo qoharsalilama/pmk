@@ -15,6 +15,7 @@ $_SESSION["nama"] = $main["nama"];
 $_SESSION["nip"] = $main["nip"];
 $_SESSION["ttl"] = $main["ttl"];
 $_SESSION["nosd"] = $school["nosd"];
+$_SESSION["tglsd"] = $school["tglsd"];
 $_SESSION["nosmp"] = $school["nosmp"];
 $_SESSION["nosma"] = $school["nosma"];
 $_SESSION["nos1"] = $school["nos1"];
@@ -208,7 +209,7 @@ $_SESSION["tglsk2"] = $nosk["tglsk2"];
                   <div class="row no-gutters align-items-center">
                     <div class="col">
                       <div class="text-md font-weight-bold text-primary text-uppercase mb-1">Ijazah SD</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$_SESSION["nosd"]?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$_SESSION["nosd"]." | ". tgl_indo($_SESSION["tglsd"])?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-baby fa-2x text-gray-300"></i>
