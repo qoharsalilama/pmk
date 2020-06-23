@@ -182,7 +182,7 @@ if(isset($_POST["submit"])) {
                       <div class="row">
                         <div class="col-lg-8">
                           <label for="nosd">No. Ijazah</label>
-                          <input type="text" name="nosd" class="form-control" id="nosd" placeholder="16 OA oa 015xxx" required>
+                          <input type="text" name="nosd" class="form-control" id="nosd" placeholder="16 OA oa 015xxx">
                         </div>
                         <div class="col-lg-4">
                           <label for="tglsd">Tanggal</label>
@@ -200,12 +200,12 @@ if(isset($_POST["submit"])) {
                     <div class="card-body">
                       <div class="row">
                         <div class="col-lg-8">
-                          <label for="noSMP">Nomor Ijazah</label>
+                          <label for="nosmp">Nomor Ijazah</label>
                           <input type="text" name="nosmp" class="form-control" id="nosmp" placeholder="16 OB ob 015xxx" >
                         </div>
                         <div class="col-lg-4">
-                          <label for="tglSMP">Tanggal</label>
-                          <input type="date" name="tglSMP" class="form-control" id="tglSMP" >
+                          <label for="tglsmp">Tanggal</label>
+                          <input type="date" name="tglsmp" class="form-control" id="tglsmp" >
                         </div>
                       </div>
                     </div>
@@ -222,13 +222,13 @@ if(isset($_POST["submit"])) {
                     <div class="card-body">
                       <div class="row">
                         <div class="col-lg-8">
-                          <label for="noSMA">Nomor Ijazah</label>
-                          <input type="text" name="noSMA" class="form-control" id="noSMA" placeholder="16 OG og 015xxx"
+                          <label for="nosma">Nomor Ijazah</label>
+                          <input type="text" name="nosma" class="form-control" id="nosma" placeholder="16 OG og 015xxx"
                             >
                         </div>
                         <div class="col-lg-4">
-                          <label for="tglSMA">Tanggal</label>
-                          <input type="date" name="tglSMA" class="form-control" id="tglSMA" >
+                          <label for="tglsma">Tanggal</label>
+                          <input type="date" name="tglsma" class="form-control" id="tglsma" >
                         </div>
                       </div>
                     </div>
@@ -242,13 +242,13 @@ if(isset($_POST["submit"])) {
                     <div class="card-body">
                       <div class="row">
                         <div class="col-lg-8">
-                          <label for="noS1">Nomor Ijazah</label>
-                          <input type="text" name="noS1" class="form-control" id="noS1" placeholder="16 OB ob 015xxx"
+                          <label for="nos1">Nomor Ijazah</label>
+                          <input type="text" name="nos1" class="form-control" id="nos1" placeholder="16 OB ob 015xxx"
                             >
                         </div>
                         <div class="col-lg-4">
-                          <label for="tglS1">Tanggal</label>
-                          <input type="date" name="tglS1" class="form-control" id="tglS1" >
+                          <label for="tgls1">Tanggal</label>
+                          <input type="date" name="tgls1" class="form-control" id="tgls1" >
                         </div>
                       </div>
                     </div>

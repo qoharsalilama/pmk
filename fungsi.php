@@ -24,7 +24,7 @@ function tambah($data) {
     $nos1 = htmlspecialchars($data["nos1"]);
     $tgls1 = $data["tgls1"];
     
-    $query = "UPDATE school SET nosd='$nosd', tglsd='$tglsd', nosmp='$nosmp', tglsmp='$tglsmp', nosma='$nosma', tglsma='$tglsma',nos1='$nos1', tgls1='$tgls1',
+    $query = "UPDATE school SET nosd='$nosd', tglsd='$tglsd', nosmp='$nosmp', tglsmp='$tglsmp', nosma='$nosma', tglsma='$tglsma',nos1='$nos1', tgls1='$tgls1'
             WHERE nip = '".$_SESSION['nip']."'";
     mysqli_query($conn, $query);
     
@@ -46,11 +46,13 @@ function tgl_indo($tanggal){
 		'November',
 		'Desember'
 	);
-	$pecahkan = explode('-', $tanggal);
-	
+    $pecahkan = explode('-', $tanggal);
 	// variabel pecahkan 0 = tanggal
 	// variabel pecahkan 1 = bulan
-	// variabel pecahkan 2 = tahun
-
-	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+    // variabel pecahkan 2 = tahun
+    if ($pecahkan[0] == "0000") {
+        echo "";
+    } else {
+        return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+    }
 }

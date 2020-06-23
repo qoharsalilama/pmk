@@ -17,8 +17,11 @@ $_SESSION["ttl"] = $main["ttl"];
 $_SESSION["nosd"] = $school["nosd"];
 $_SESSION["tglsd"] = $school["tglsd"];
 $_SESSION["nosmp"] = $school["nosmp"];
+$_SESSION["tglsmp"] = $school["tglsmp"];
 $_SESSION["nosma"] = $school["nosma"];
+$_SESSION["tglsma"] = $school["tglsma"];
 $_SESSION["nos1"] = $school["nos1"];
+$_SESSION["tgls1"] = $school["tgls1"];
 $_SESSION["nosk1"] = $nosk["nosk1"];
 $_SESSION["tglsk1"] = $nosk["tglsk1"];
 $_SESSION["nosk2"] = $nosk["nosk2"];
@@ -225,7 +228,7 @@ $_SESSION["tglsk2"] = $nosk["tglsk2"];
                   <div class="row no-gutters align-items-center">
                     <div class="col">
                       <div class="text-md font-weight-bold text-primary text-uppercase mb-1">Ijazah SLTP</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$_SESSION["nosmp"]?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$_SESSION["nosmp"]." | ". tgl_indo($_SESSION["tglsmp"])?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-baby fa-2x text-gray-300"></i>
@@ -241,7 +244,7 @@ $_SESSION["tglsk2"] = $nosk["tglsk2"];
                   <div class="row no-gutters align-items-center">
                     <div class="col">
                       <div class="text-md font-weight-bold text-primary text-uppercase mb-1">Ijazah SLTA</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$_SESSION["nosma"]?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$_SESSION["nosma"]." | ". tgl_indo($_SESSION["tglsma"])?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-baby fa-2x text-gray-300"></i>
@@ -257,7 +260,7 @@ $_SESSION["tglsk2"] = $nosk["tglsk2"];
                   <div class="row no-gutters align-items-center">
                     <div class="col">
                       <div class="text-md font-weight-bold text-primary text-uppercase mb-1">Ijazah S1</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$_SESSION["nos1"]?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$_SESSION["nos1"]." | ". tgl_indo($_SESSION["tgls1"])?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-baby fa-2x text-gray-300"></i>
@@ -273,7 +276,7 @@ $_SESSION["tglsk2"] = $nosk["tglsk2"];
                   <div class="row no-gutters align-items-center">
                     <div class="col">
                       <div class="text-md font-weight-bold text-primary text-uppercase mb-1">SK Pengangkatan Pertama</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$_SESSION["nosk1"] . date("d M Y", $_SESSION["tglsk1"])?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$_SESSION["nosk1"]." | ". tgl_indo($_SESSION["tglsk1"])?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-baby fa-2x text-gray-300"></i>
@@ -289,7 +292,7 @@ $_SESSION["tglsk2"] = $nosk["tglsk2"];
                   <div class="row no-gutters align-items-center">
                     <div class="col">
                       <div class="text-md font-weight-bold text-primary text-uppercase mb-1">SK Pengangkatan Terakhir</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$_SESSION["nosk2"]." | ". date("d M Y", mktime($_SESSION["tglsk2"]))?></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$_SESSION["nosk2"]." | ". tgl_indo($_SESSION["tglsk2"])?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-baby fa-2x text-gray-300"></i>
