@@ -13,8 +13,6 @@ function query($query) {
 
 function tambah($data) {
     global $conn;
-    // $query1 = mysqli_query($conn, "SELECT * FROM school WHERE nip = '$pengguna'");
-    // $setbaris = mysqli_fetch_array($query1);
     $nosd = htmlspecialchars($data["nosd"]);
 	$tglsd = $data["tglsd"];
 	$nosmp = htmlspecialchars($data["nosmp"]);
@@ -25,6 +23,19 @@ function tambah($data) {
     $tgls1 = $data["tgls1"];
     
     $query = "UPDATE school SET nosd='$nosd', tglsd='$tglsd', nosmp='$nosmp', tglsmp='$tglsmp', nosma='$nosma', tglsma='$tglsma',nos1='$nos1', tgls1='$tgls1'
+            WHERE nip = '".$_SESSION['nip']."'";
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+function jabatan($data) {
+    global $conn;
+    $nosk1 = htmlspecialchars($data["nosk1"]);
+	$tglsk1 = $data["tglsk1"];
+	$nosk2 = htmlspecialchars($data["nosk2"]);
+    $tglsk2 = $data["tglsk2"];
+        
+    $query = "UPDATE nosk SET nosk1='$nosk1', tglsk1='$tglsk1', nosk2='$nosk2', tglsk2='$tglsk2'
             WHERE nip = '".$_SESSION['nip']."'";
     mysqli_query($conn, $query);
     

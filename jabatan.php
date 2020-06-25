@@ -1,3 +1,31 @@
+<?php
+session_start();
+if (!isset($_SESSION["login"])) {
+	header("Location: login.php");
+  exit;
+}
+
+require 'fungsi.php';
+
+if(isset($_POST["submit"])) {
+  if(jabatan($_POST) > 0 ){
+      echo "
+        <script>
+          alert('Pengalaman Kerja BERHASIL ditambahkan!');
+          document.location.href = 'index.php';
+        </script>
+      ";
+    } else {
+      echo "
+        <script>
+          alert('Pengalaman Kerja GAGAL ditambahkan!');
+          document.location.href = 'index.php';
+        </script>
+      ";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -156,13 +184,13 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-8">
-                                        <label for="noFirst">Nomor</label>
-                                        <input type="text" name="noSK1" class="form-control" id="noFirst" required>
+                                        <label for="nosk1">Nomor</label>
+                                        <input type="text" name="nosk1" class="form-control" id="nosk1" required>
                                         <small class="form-text text-muted pl-1" id="NoSKHelpBlock">SK Kontrak/Honorer pertama setelah menjadi Sarjana</small>
                                     </div>
                                     <div class="col-lg-4">
-                                        <label for="tglFirst">Tanggal</label>
-                                        <input type="date" name="tglSK1" class="form-control" id="tglFirst" required>
+                                        <label for="tglsk1">Tanggal</label>
+                                        <input type="date" name="tglsk1" class="form-control" id="tglsk1" >
                                     </div>
                                 </div>
                             </div>
@@ -181,13 +209,13 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-8">
-                                        <label for="noLast">Nomor</label>
-                                        <input type="text" name="noSK2" class="form-control" id="noLast" required>
+                                        <label for="nosk2">Nomor</label>
+                                        <input type="text" name="nosk2" class="form-control" id="nosk2" >
                                         <small class="form-text text-muted pl-1" id="NoSKHelpBlock">SK Kontrak/Honorer terakhir sebelum TMT CPNS</small>
                                     </div>
                                     <div class="col-lg-4">
-                                        <label for="tglLast">Tanggal</label>
-                                        <input type="date" name="tglSK2" class="form-control" id="tglLast" required>
+                                        <label for="tglsk2">Tanggal</label>
+                                        <input type="date" name="tglsk2" class="form-control" id="tglsk2" >
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +225,7 @@
               </div>
 
               <div class="row mr-auto" style="float: right;">
-                <button type="submit" class="btn btn-info btn-lg">SIMPAN</button>
+                <button type="submit" name="submit" class="btn btn-info btn-lg">SIMPAN</button>
               </div>
             </form>
         </div>
