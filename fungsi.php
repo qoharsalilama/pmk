@@ -42,6 +42,15 @@ function jabatan($data) {
     return mysqli_affected_rows($conn);
 }
 
+function masker($data) {
+    global $conn;
+    $ins = htmlspecialchars($data["ins"]);
+
+    $query = "UPDATE instansi SET ins1='$ins', thn1='$thn' WHERE nip = '".$_SESSION['nip']."'";
+    msyqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
 function tgl_indo($tanggal){
 	$bulan = array (
 		1 =>   'Januari',

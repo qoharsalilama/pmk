@@ -1,3 +1,32 @@
+<?php
+session_start();
+if (!isset($_SESSION["login"])) {
+	header("Location: login.php");
+  exit;
+}
+
+require 'fungsi.php';
+
+if(isset($_POST["submit"])) {
+  if(masker($_POST) > 0 ){
+      echo "
+        <script>
+          alert('Data Instansi BERHASIL ditambahkan!');
+          document.location.href = 'index.php';
+        </script>
+      ";
+    } else {
+      echo "
+        <script>
+          alert('Data Instansi GAGAL ditambahkan!');
+          document.location.href = 'index.php';
+        </script>
+      ";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -119,7 +148,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-white medium">Rahmanto Tunggali</span>
+                <span class="mr-2 d-none d-lg-inline text-white medium"><?=$_SESSION["nama"]?></span>
                 <img class="img-profile rounded-circle" src="img/depag.png">
               </a>
               <!-- Dropdown - User Information -->
@@ -159,15 +188,15 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form> 
+                  <form action="" method="post"> 
                     <div class="row">
                       <div class="form-group col-md-10">
-                        <label for="jabatan" class="col-form-label">Jabatan pada Instansi</label>
-                        <input type="text" class="form-control" id="jabatan" name="ins">
+                        <label for="ins" class="col-form-label">Jabatan pada Instansi</label>
+                        <input type="text" class="form-control" id="ins" name="ins">
                       </div>
                       <div class="form-group col-md-1">
-                        <label for="tahun" class="col-form-label">Tahun</label>
-                        <select class="form-control" id="tahun" name="thn">
+                        <label for="thn" class="col-form-label">Tahun</label>
+                        <select class="form-control" id="thn" name="thn">
                           <option value="0">0</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -182,8 +211,8 @@
                         </select>
                       </div>
                       <div class="form-group col-md-1">
-                        <label for="bulan" class="col-form-label">Bulan</label>
-                        <select class="form-control" id="bulan" name="bln">
+                        <label for="bln" class="col-form-label">Bulan</label>
+                        <select class="form-control" id="bln" name="bln">
                           <option value="0">0</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -210,7 +239,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                  <button type="button" class="btn btn-primary">Simpan</button>
+                  <button type="submit" class="btn btn-primary" name="submit">Simpan</button>
                 </div>
               </div>
             </div>
@@ -309,7 +338,7 @@
         <div class="modal-body">Tindis "Logout" kalo sudah.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.php">Logout</a>
+          <a class="btn btn-primary" href="logout.php">Logout</a>
         </div>
       </div>
     </div>
