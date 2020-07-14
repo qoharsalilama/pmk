@@ -46,8 +46,8 @@ function masker($data) {
     global $conn;
     $ins = htmlspecialchars($data["ins"]);
 
-    $query = "UPDATE instansi SET ins1='$ins', thn1='$thn' WHERE nip = '".$_SESSION['nip']."'";
-    msyqli_query($conn, $query);
+    $query = "UPDATE instansi SET ins1='$ins' WHERE nip = '".$_SESSION['nip']."'";
+    mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }
 

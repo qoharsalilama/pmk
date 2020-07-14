@@ -177,6 +177,7 @@ if(isset($_POST["submit"])) {
               data-whatever="@mdo"><i class="fas fa-angle-double-down fa-sm text-white-50"></i> Tambah</button>
           </div>
 
+          <form action="" method="post">
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
@@ -188,7 +189,7 @@ if(isset($_POST["submit"])) {
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form action="" method="post"> 
+                   
                     <div class="row">
                       <div class="form-group col-md-10">
                         <label for="ins" class="col-form-label">Jabatan pada Instansi</label>
@@ -235,7 +236,7 @@ if(isset($_POST["submit"])) {
                           aria-describedby="inputGroupFileAddon02">Pilih file</label>
                       </div>
 
-                  </form>
+                  
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -244,8 +245,8 @@ if(isset($_POST["submit"])) {
               </div>
             </div>
           </div>
-
-            <form action="" method="post">
+          </form>
+            <!-- <form action="" method="post"> -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">Masa Kerja</h6>
@@ -296,9 +297,66 @@ if(isset($_POST["submit"])) {
                   </div>
                 </div>
               </div> 
-            </form>
+            <!-- </form> -->
+
+            <form action="" method="post">
+              <div class="form-row">
+                <div class="col-lg-12">
+                    <div class="card shadow mb-4 border-left-warning">
+                        <!-- Card Header - Accordion -->
+                        <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+                            role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                            <h6 class="m-0 font-weight-bold text-success">Instansi 1</h6>
+                        </a>
+                        <!-- Card Content - Collapse -->
+                        <div class="collapse" id="collapseCardExample">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <label for="nosk1">Nomor</label>
+                                        <input type="text" name="nosk1" class="form-control" id="nosk1" required>
+                                        <small class="form-text text-muted pl-1" id="NoSKHelpBlock">SK Kontrak/Honorer pertama setelah menjadi Sarjana</small>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="tglsk1">Tanggal</label>
+                                        <input type="date" name="tglsk1" class="form-control" id="tglsk1" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card shadow mb-4 border-left-warning">
+                        <!-- Card Header - Accordion -->
+                        <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button"
+                            aria-expanded="true" aria-controls="collapseCardExample">
+                            <h6 class="m-0 font-weight-bold text-danger">Surat Keputusan Pengangkatan Terakhir</h6>
+                        </a>
+                        <!-- Card Content - Collapse -->
+                        <div class="collapse" id="collapseCardExample">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <label for="nosk2">Nomor</label>
+                                        <input type="text" name="nosk2" class="form-control" id="nosk2" >
+                                        <small class="form-text text-muted pl-1" id="NoSKHelpBlock">SK Kontrak/Honorer terakhir sebelum TMT CPNS</small>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="tglsk2">Tanggal</label>
+                                        <input type="date" name="tglsk2" class="form-control" id="tglsk2" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
         </div>
         
+        
+
         <!-- /.container-fluid -->
         
       </div>
