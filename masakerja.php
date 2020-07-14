@@ -1,3 +1,32 @@
+<?php
+session_start();
+if (!isset($_SESSION["login"])) {
+	header("Location: login.php");
+  exit;
+}
+
+require 'fungsi.php';
+
+if(isset($_POST["submit"])) {
+  if(masker($_POST) > 0 ){
+      echo "
+        <script>
+          alert('Data Instansi BERHASIL ditambahkan!');
+          document.location.href = 'index.php';
+        </script>
+      ";
+    } else {
+      echo "
+        <script>
+          alert('Data Instansi GAGAL ditambahkan!');
+          document.location.href = 'index.php';
+        </script>
+      ";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -119,7 +148,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-white medium">Rahmanto Tunggali</span>
+                <span class="mr-2 d-none d-lg-inline text-white medium"><?=$_SESSION["nama"]?></span>
                 <img class="img-profile rounded-circle" src="img/depag.png">
               </a>
               <!-- Dropdown - User Information -->
@@ -148,6 +177,7 @@
               data-whatever="@mdo"><i class="fas fa-angle-double-down fa-sm text-white-50"></i> Tambah</button>
           </div>
 
+          <form action="" method="post">
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
@@ -159,15 +189,15 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form> 
+                   
                     <div class="row">
                       <div class="form-group col-md-10">
-                        <label for="jabatan" class="col-form-label">Jabatan pada Instansi</label>
-                        <input type="text" class="form-control" id="jabatan" name="ins">
+                        <label for="ins" class="col-form-label">Jabatan pada Instansi</label>
+                        <input type="text" class="form-control" id="ins" name="ins">
                       </div>
                       <div class="form-group col-md-1">
-                        <label for="tahun" class="col-form-label">Tahun</label>
-                        <select class="form-control" id="tahun" name="thn">
+                        <label for="thn" class="col-form-label">Tahun</label>
+                        <select class="form-control" id="thn" name="thn">
                           <option value="0">0</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -182,8 +212,8 @@
                         </select>
                       </div>
                       <div class="form-group col-md-1">
-                        <label for="bulan" class="col-form-label">Bulan</label>
-                        <select class="form-control" id="bulan" name="bln">
+                        <label for="bln" class="col-form-label">Bulan</label>
+                        <select class="form-control" id="bln" name="bln">
                           <option value="0">0</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -206,17 +236,17 @@
                           aria-describedby="inputGroupFileAddon02">Pilih file</label>
                       </div>
 
-                  </form>
+                  
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                  <button type="button" class="btn btn-primary">Simpan</button>
+                  <button type="submit" class="btn btn-primary" name="submit">Simpan</button>
                 </div>
               </div>
             </div>
           </div>
-
-            <form action="" method="post">
+          </form>
+            <!-- <form action="" method="post"> -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">Masa Kerja</h6>
@@ -267,9 +297,66 @@
                   </div>
                 </div>
               </div> 
-            </form>
+            <!-- </form> -->
+
+            <form action="" method="post">
+              <div class="form-row">
+                <div class="col-lg-12">
+                    <div class="card shadow mb-4 border-left-warning">
+                        <!-- Card Header - Accordion -->
+                        <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse"
+                            role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                            <h6 class="m-0 font-weight-bold text-success">Instansi 1</h6>
+                        </a>
+                        <!-- Card Content - Collapse -->
+                        <div class="collapse" id="collapseCardExample">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <label for="nosk1">Nomor</label>
+                                        <input type="text" name="nosk1" class="form-control" id="nosk1" required>
+                                        <small class="form-text text-muted pl-1" id="NoSKHelpBlock">SK Kontrak/Honorer pertama setelah menjadi Sarjana</small>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="tglsk1">Tanggal</label>
+                                        <input type="date" name="tglsk1" class="form-control" id="tglsk1" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card shadow mb-4 border-left-warning">
+                        <!-- Card Header - Accordion -->
+                        <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button"
+                            aria-expanded="true" aria-controls="collapseCardExample">
+                            <h6 class="m-0 font-weight-bold text-danger">Surat Keputusan Pengangkatan Terakhir</h6>
+                        </a>
+                        <!-- Card Content - Collapse -->
+                        <div class="collapse" id="collapseCardExample">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <label for="nosk2">Nomor</label>
+                                        <input type="text" name="nosk2" class="form-control" id="nosk2" >
+                                        <small class="form-text text-muted pl-1" id="NoSKHelpBlock">SK Kontrak/Honorer terakhir sebelum TMT CPNS</small>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label for="tglsk2">Tanggal</label>
+                                        <input type="date" name="tglsk2" class="form-control" id="tglsk2" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
         </div>
         
+        
+
         <!-- /.container-fluid -->
         
       </div>
@@ -309,7 +396,7 @@
         <div class="modal-body">Tindis "Logout" kalo sudah.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.php">Logout</a>
+          <a class="btn btn-primary" href="logout.php">Logout</a>
         </div>
       </div>
     </div>
